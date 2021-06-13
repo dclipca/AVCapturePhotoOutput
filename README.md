@@ -29,29 +29,6 @@ class ViewController: NSViewController, AVCapturePhotoCaptureDelegate {
     }
     
     // MARK: - UtilityFunctions
-    func truncateNumber(n: CGFloat) -> CGFloat {
-        return floor(1000000 * n) / 1000000;
-    }
-    
-    func moveMouseToRandomScreenPoint() {
-        let s = NSScreen.main
-        let sFrame = s?.frame
-        let sWidth = Float((sFrame?.size.width)!)
-        let sHeight = Float((sFrame?.size.height)!)
-        let r = Float(Float.random(in: 0..<1))
-        let rSWidth = CGFloat(r * sWidth)
-        let rSHeight = CGFloat(r * sHeight)
-        
-        let screenPoint = CGPoint(x: rSWidth, y: rSHeight)
-        
-        moveMouseToScreenPoint(screenPoint: screenPoint)
-    }
-    
-    func moveMouseToScreenPoint(screenPoint: CGPoint) {
-        let moveEvent = CGEvent(mouseEventSource: nil, mouseType: .mouseMoved, mouseCursorPosition: screenPoint, mouseButton: .left)
-        moveEvent?.post(tap: .cgSessionEventTap);
-    }
-
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
